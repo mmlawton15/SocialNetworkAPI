@@ -1,9 +1,15 @@
 //equivalent to a comment
 
-const {Schema, model } = require('mongoose');
+const {Schema, model, Types } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
-const ReactionSchema = new Schema({
-    writtenBy: {
+const ReactionSchema = new Schema(
+  {
+    reactionId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId()
+    },
+    username: {
       type: String
     },
     reactionBody: {
@@ -11,9 +17,11 @@ const ReactionSchema = new Schema({
     },
     createdAt: {
       type: Date,
-      default: Date.now
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
     }
-  });
+  }
+);
   
   const Reaction = model('Reaction', ReactionSchema);
   
