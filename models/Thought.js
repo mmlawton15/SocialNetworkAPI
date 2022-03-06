@@ -31,8 +31,8 @@ const ThoughtSchema = new Schema({
 );
 
 //get total count of reactions and replies on retrieval
-ThoughtSchema.virtual('reactionCourt').get(function() {
-    return this.comments.length;
+ThoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
 });
 
 const Thought = model('Thought', ThoughtSchema);

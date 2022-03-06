@@ -1,10 +1,10 @@
 const { Reaction, Thought } = require('../models');
 
 const reactionController = {
-  // add reatction to pizza
+  // add reatction to thought
   addReaction({params, body}, res) {
     console.log(body);
-    Comment.create(body)
+    Reaction.create(body)
     .then(({_id}) => {
         return Thought.findOneAndUpdate(
             { _id: params.thoughtId},
@@ -31,7 +31,7 @@ const reactionController = {
           }
           return Thought.findOneAndUpdate(
               { _id: params.thoughtId },
-              { $pull: {reactions: params.commentId}},
+              { $pull: {reactions: params.reactionId}},
               {new: true}
           )
       })
