@@ -1,1 +1,36 @@
-const {} = require('mongoose');
+const { Schema, model } = require('mongoose');
+
+const UserSchema = new Schema(
+    {
+        username: {
+            type: String,
+            unique: true,
+            required: true,
+            trim: true
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            match: [/.+@.+\..+/]
+        },
+        thoughts: {},
+        friends: {}
+    },
+    {
+       toJSON: {
+           virtuals: true,
+           getters: true
+       },
+       id: false
+    }
+);
+
+//get total count of friends and replies on retrieval THIS IS BREAKING MY CODE
+// UserSchema.virtual('friendCount').get(function() {
+//     return this.friends.reduce((total, friend) => total + friend.replies.length +1,0);
+// });
+
+const User = model('User', UserSchema);
+
+module.exports = User;
