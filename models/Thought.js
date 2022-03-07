@@ -1,6 +1,34 @@
 //page for checking out someone's thought
 const dateFormat = require('../utils/dateFormat');
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+
+
+const ReactionSchema = new Schema(
+    {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+        },
+        username: {
+          type: String
+        },
+        reactionBody: {
+          type: String
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+          get: createdAtVal => dateFormat(createdAtVal)
+        }
+    },
+    {
+        toJSON: {
+            getters: true
+        }
+    }
+);
+
+
 
 const ThoughtSchema = new Schema({
         thoughtText: {
@@ -18,10 +46,7 @@ const ThoughtSchema = new Schema({
             get: (createdAtVal) => dateFormat(createdAtVal)
             //USE GETTER METHOD TO FORMAT TIMESTAMP ON QUERY, CHECK OUT SCHEMA SETTINGS
         },
-        reactions: {
-            type: Schema.Types.ObjectId,
-            ref: 'Reaction'
-        }
+        reactions: [ReactionSchema]
     },
     {
         toJSON: {
@@ -34,7 +59,7 @@ const ThoughtSchema = new Schema({
 
 //get total count of reactions and replies on retrieval THIS IS BREAKING MY CODE
 // ThoughtSchema.virtual('reactionCount').get(function() {
-//     return this.reactions.reduce((total, reaction) => total + reaction.replies.length +1,0);
+//     return this.replies.length;
 // });
 
 const Thought = model('Thought', ThoughtSchema);
