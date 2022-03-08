@@ -1,3 +1,5 @@
+
+
 const { Reaction, Thought } = require('../models');
 
 const reactionController = {
