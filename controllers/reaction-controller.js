@@ -3,14 +3,11 @@ const { Reaction, Thought } = require('../models');
 const reactionController = {
   // add reatction to thought
   addReaction({params, body}, res) {
-    Reaction.create(body)
-    .then(({_id}) => {
-        return Thought.findOneAndUpdate(
-            { _id: params.thoughtId},
-            { $push: {reactions: _id}},
-            {new: true}
-        );
-    })
+    Reaction.findOneAndUpdate(
+        { _id: params.reactionId },
+        { $push: { replies: body } },
+        { new: true }
+    )
     .then(dbThoughtData => {
         if (!dbThoughtData) {
             res.status(404).json({ message: "No thought with this id"});
@@ -23,7 +20,7 @@ const reactionController = {
 
   // remove reaction
   removeReaction({params}, res) {
-      Reaction.findOneAndDelete({ _id: params.reactionId })
+      Thought.findOneAndDelete({ _id: params.reactionId })
       .then(deletedReaction => {
           if (!deletedReaction) {
               return res.status(404).json({ message: 'No reaction with this id'})
