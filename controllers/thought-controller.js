@@ -65,7 +65,11 @@ const thoughtController = {
             res.json(dbThoughtData);
         })
         .catch(err => res.status(400).json(err));
-    }
+    },
+    // post a reaction
+    // -- get the thought by id
+    // -- updated the reactions prop in the thought
+    // delete a reaction
 };
 
 module.exports = thoughtController;

@@ -28,6 +28,20 @@ const ReactionSchema = new Schema(
     }
 );
 
+const fakeThought = {
+    thoughtText: '',
+    username: '',
+    createdAt: '',
+    reactions: [
+        {
+            reactionId: '',
+            username: '',
+            reactionBody: '',
+            createdAt: ''
+        }
+    ]
+}
+
 
 
 const ThoughtSchema = new Schema({
