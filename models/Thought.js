@@ -28,21 +28,6 @@ const ReactionSchema = new Schema(
     }
 );
 
-const fakeThought = {
-    thoughtText: '',
-    username: '',
-    createdAt: '',
-    reactions: [
-        {
-            reactionId: '',
-            username: '',
-            reactionBody: '',
-            createdAt: ''
-        }
-    ]
-}
-
-
 
 const ThoughtSchema = new Schema({
         thoughtText: {
@@ -58,7 +43,7 @@ const ThoughtSchema = new Schema({
             type: Date,
             default: Date.now,
             get: (createdAtVal) => dateFormat(createdAtVal)
-            //USE GETTER METHOD TO FORMAT TIMESTAMP ON QUERY, CHECK OUT SCHEMA SETTINGS
+
         },
         reactions: [ReactionSchema]
     },
