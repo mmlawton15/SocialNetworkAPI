@@ -1,12 +1,11 @@
 # challenge-eighteen-peacock
 Repository for challenge 18 of my bootcamp. Was tasked with creating a social network API that was initiated from the command line, primarily using express.js and mongodb.
 
+## What is this?
+This is my submission for challenge 18 of my bootcamp. I was give the assignment to start the backend code for a social media platform that is being developed. The users are able to post thoughts, and react to their friends thoughts as well. The users also will be able to add or delete friends, add or delete reactions, and add or delete thoughts.
 
-for add a reaction, i need to get thgought, add or update reactions object wither using an array method or some mongoose method. This is because reactions is an array of objects (findoneandupdate is similar)
-reading all mini projects will be the best way to complete this
-check out thought controller.js line 69
-reactions is not a model but a schema, similar to the replies in the pizza hunt app.
-thought is pizza,
-reactions are comments but function similarly to replies?
+## How did I build this?
+I build this using Javascript, Express.js, Node.js, Mongoose, MongoDB and NoSQL. I really enjoyed the project overall, even through the complexities of connecting the dots.
 
-might just turn this in and see what feedback i get back
+## Where can I find it?
+You can find this at my github repo (https://github.com/mmlawton15/challenge-eighteen-peacock/tree/main)
