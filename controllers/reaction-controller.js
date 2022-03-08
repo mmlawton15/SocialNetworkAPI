@@ -1,4 +1,4 @@
-
+//I THINK THIS FILE IS NOT NEEDED. THIS IS MY BRANCH I WILL USE TO GO AWAY FROM THE LESSON CONTENT
 
 const { Reaction, Thought } = require('../models');
 
