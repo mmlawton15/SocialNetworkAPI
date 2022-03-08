@@ -3,7 +3,9 @@ const { User } = require('../models');
 const userController = {
     //get all users
     getAllUsers(req, res) {
-        User.find({})
+        User.findAll({
+            attributes: {exclude: ['email']}
+        })
         // .populate({
         //     path: 'friends',
         //     select: '-__v'
@@ -37,7 +39,7 @@ const userController = {
         });
     },
     //create user
-    createUser({ body}, res) {
+    createUser({ body }, res) {
         User.create(body)
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.status(400).json(err));
