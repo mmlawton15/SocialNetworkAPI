@@ -6,9 +6,9 @@ const {
     createUser,
     updateUser,
     deleteUser
-} = require('../../controllers/user-controller'); //how do i remove a users thoughts when they're deleted?
+} = require('../../controllers/user-controller'); //how do i remove a user thoughts when they're deleted?
 
-//SET UP GET ALL AND POST AT API/USERS
+//SET UP GET ALL AND POST AT API/USER
 router
     .route('/')
     .get(getAllUsers)

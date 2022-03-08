@@ -32,9 +32,9 @@ const UserSchema = new Schema(
     }
 );
 
-//get total count of friends and replies on retrieval THIS IS BREAKING MY CODE
+//get total count of friends and reactions on retrieval THIS IS BREAKING MY CODE
 // UserSchema.virtual('friendCount').get(function() {
-//     return this.friends.reduce((total, friend) => total + friend.replies.length +1,0);
+//     return this.friends.reduce((total, friend) => total + friend.reactions.length +1,0);
 // });
 
 const User = model('User', UserSchema);

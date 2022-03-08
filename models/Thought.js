@@ -56,9 +56,9 @@ const ThoughtSchema = new Schema({
     }
 );
 
-//get total count of reactions and replies on retrieval THIS IS BREAKING MY CODE
+//get total count of reactions and reactions on retrieval THIS IS BREAKING MY CODE
 // ThoughtSchema.virtual('reactionCount').get(function() {
-//     return this.replies.length;
+//     return this.reactions.length;
 // });
 
 const Thought = model('Thought', ThoughtSchema);
